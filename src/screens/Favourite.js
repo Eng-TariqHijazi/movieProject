@@ -21,7 +21,7 @@ const Favourite = ({navigation}) => {
             item.favourite = !item.favourite;
             !item.favourite
               ? setFavourite(pre => {
-                  return pre.filter(favitem => favitem.id != item.id);
+                  return pre.filter(favitem => favitem.id !== item.id);
                 })
               : setFavourite(pre => {
                   return [...pre, item];

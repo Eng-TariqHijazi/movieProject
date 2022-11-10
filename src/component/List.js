@@ -58,7 +58,6 @@ export const List = () => {
 export const ListFilm = ({data}) => {
   const {setFavourite} = useContext(FavouriteContext);
   const renderItem = ({item}) => {
-    console.log({item});
     return (
       <ImageBackground
         style={styles.cardImg}
@@ -70,14 +69,14 @@ export const ListFilm = ({data}) => {
           style={styles.heart}
           size={20}
           onPress={() => {
-            item.favourite = !item.favourite;
-            !item.favourite
+            item.favourite
               ? setFavourite(pre => {
                   return pre.filter(favitem => favitem.id !== item.id);
                 })
               : setFavourite(pre => {
                   return [...pre, item];
                 });
+            item.favourite = !item.favourite;
           }}
         />
         <Text style={styles.textCard}>{item.name}</Text>
